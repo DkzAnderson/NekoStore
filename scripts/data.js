@@ -403,4 +403,80 @@ let TheEminenceInShadows = new serie("The Eminence in Shadows",
     ]
 ])
 
-seriesContainer.push(YoujoSenki,KenjaNoMago,Overlord,LogHorizon,Castlevania, HellsParadise,TheEminenceInShadows)
+let OnePiece = new serie("One piece",
+
+"One Piece es una serie de manga japonesa escrita e ilustrada por Eiichiro Oda." +
+"Ha sido serializado en la revista de manga shōnen de Shueisha Weekly " + 
+"Shōnen Jump desde julio de 1997, con sus capítulos individuales compilados" + 
+" en 105 volúmenes de tankōbon a partir de marzo de 2023" + 
+"", 
+
+"./assets/imgs/One piece/571106.webp",
+[
+    [   // Arco East bLUE   
+        "https://terabox.com/sharing/embed?surl=Ci4DnZlp6V2jWJYAloIYdQ&resolution=480", 
+        "https://terabox.com/sharing/embed?surl=PIjbCLt16uKMvXQTpu-SuQ&resolution=480", 
+        "https://terabox.com/sharing/embed?surl=cKuRyOYrk-arFQYSJz3KwQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=himWVvM02xQQlYC2iWOrVQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=5HFtFoJ7vyXqIMrsGBNhMw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=Z8yxTB2amJXaDAbSuKrCTw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=XsKXLCylqUrPZtiaRBurjQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=T6ZX7niE_7R5zTgONLITOg&resolution=480",
+        "https://terabox.com/sharing/embed?surl=1kPlSyAaqipn3bGcY2CFpQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=Ql1DgLPCu3UWZUAa1Fm-vA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=yzMNJALe6hrlOQ6iVzR-YA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=pSiuZp86QXSU2OuqRojtzA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=YLPyVlWdprwP0mSChPdskQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=LIFZx3OzZSsXsslSUQDr1g&resolution=480",
+        "https://terabox.com/sharing/embed?surl=lh7QY8Gc4OAGmOLPMwB-Nw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=jQ4In1fs2HLgEH_XgST5jw&resolution=720",
+        "https://terabox.com/sharing/embed?surl=gL3vWDn8jaBOwsWZBhih9w&resolution=480",
+        "https://terabox.com/sharing/embed?surl=1lgeeWv8x3Rs6J0ajrFyWw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=YFzWjPzJ898j1ZU2POVgHQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=R9MKdxbtVnzD4rm1X5VO9A&resolution=480",
+        "https://terabox.com/sharing/embed?surl=Qjx6A0aOGzcvrIsweshD6Q&resolution=480",
+        "https://terabox.com/sharing/embed?surl=rxIXaE1G42anQmt7qdXMyQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=v8SzrmneUNcWAMmZbnxqKw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=ZtjenN5YHgNjs2MIsPjs7g&resolution=480",
+        "https://terabox.com/sharing/embed?surl=IXeA2DrmHa7kmfxJdL7a2g&resolution=480",
+        "https://terabox.com/sharing/embed?surl=sYxF0OgU5zARkZqTKwPLrA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=1l1r33N3opKK3a_ee39ACQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=MbVFY3S3Scy5K11gkx6vgg&resolution=480",
+        "https://terabox.com/sharing/embed?surl=WOV65T3le7LWcEs-dKcryA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=It6k99b0i1xbB6xmmPrgAg&resolution=480",
+        "https://terabox.com/sharing/embed?surl=KR20NX-x6BD33q7xwXifJw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=hNR7mh9Q1syAZB7zqxoAAQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=31u9DIwpH1HNV8mRdk3yDw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=NVnWEAU-GLtrTWXKtCrLmA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=tg1_TirknLCu1GE0CyikqA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=TpnL5tGSII27AmzvHccRLA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=4qU_ZkG0ijUgaec7AhJpPg&resolution=480",
+        "https://terabox.com/sharing/embed?surl=Q6dVMgAltR9izBn6L1AeWg&resolution=480",
+        "https://terabox.com/sharing/embed?surl=fMMFTdDm0cauHQo6f0Vcqw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=L-wCfT9pkiBDWN4_hiPhMw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=S_cvaXpcuXjqFuxyFHfC5Q&resolution=480",
+        "https://terabox.com/sharing/embed?surl=JHw1gMrnsMSMdJe9T9GY2w&resolution=480",
+        "https://terabox.com/sharing/embed?surl=Cx6V3QwtFbMuWOwy53y0mA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=Njw3H_DUdy5HZf7X-Lh00g&resolution=480",
+        "https://terabox.com/sharing/embed?surl=tM1bTBJwd4mBKMY2yHbtSA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=6AOfsm6h52F7L3cG8zA0cw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=W5JMGGk1j-sCgAYi5czU9w&resolution=480",
+        "https://terabox.com/sharing/embed?surl=0Z7LjJwVopDFUke4aK40HQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=lFkWmNJAN5w3AxS54bYNAQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=0zLVACYL5UhSIW2H9XkUTg&resolution=480",
+        "https://terabox.com/sharing/embed?surl=b7sedjJ_SpbV_7K7uZfnMg&resolution=480",
+        "https://terabox.com/sharing/embed?surl=QPlNLY_hdERPtZO8JdHsyw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=1gJh8_ZnXJBWjYWoyhxzMQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=4pJWDhwLOGR159FAFxXWTg&resolution=480",
+        "https://terabox.com/sharing/embed?surl=6vG4RNaFJE7C0VFR9ZJRZQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=vHj8iKCbn9jBtgRYvbBCLQ&resolution=480",
+        "https://terabox.com/sharing/embed?surl=8VuhL5kj4FD4hkTC5_mYsA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=8VuhL5kj4FD4hkTC5_mYsA&resolution=480",
+        "https://terabox.com/sharing/embed?surl=zaJzwCDwFJhpy-JccjtvOw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=2HBO5DVu7RMT6vWSHQWAcw&resolution=480",
+        "https://terabox.com/sharing/embed?surl=_EGOzSACJlSKXQA20nOcXQ&resolution=480",
+    ]
+
+]);
+
+seriesContainer.push(YoujoSenki,KenjaNoMago,Overlord,LogHorizon,Castlevania, HellsParadise,TheEminenceInShadows, OnePiece)
