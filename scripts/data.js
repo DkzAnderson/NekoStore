@@ -479,4 +479,44 @@ let OnePiece = new serie("One piece",
 
 ]);
 
-seriesContainer.push(YoujoSenki,KenjaNoMago,Overlord,LogHorizon,Castlevania, HellsParadise,TheEminenceInShadows, OnePiece)
+let KimetsuNoYaiba = new serie("Kimetsu no Yaiba",
+"Estamos en la era Taisho de Japón. Tanjiro, un joven que se gana la vida vendiendo carbón, descubre un día que su " +  
+"familia ha sido asesinada por un demonio. Para empeorar las cosas, su hermana menor Nezuko, la única superviviente" + 
+" de la masacre, ha sufrido una transformación en demonio.\n\n"+
+
+"Destrozado por los acontecimientos Tanjiro decide convertirse en un cazador de demonios para poder devolver a su" + 
+" hermana a la normalidad y matar al demonio que masacró a su familia.",
+"./assets/imgs/Kimetsu-No-Yaiba/Kimetsu-No-Yaiba-poster.jpg",
+[
+    [   // Temporada 1
+"https://mega.nz/embed/RyVQQIaK#2Q337aeQobM-FfoKdLOW6b59NqoWGQrpHiAR6D5HeIY",
+"https://mega.nz/embed/8z1AzTZJ#a8W5X4ffBLzdpXaQ_A3J-GMQ5bDO0hR9N5R_Lm1K6DE",
+"https://mega.nz/embed/BydwxLTA#3dxoeRIthGPVtnodl7gIAWrwSxi23U3IX4ju4MM-E6I",
+"https://mega.nz/embed/lyFAFZgA#d73ReEXbqYL9RALQo7AVWIFlbEHuZp_z9KSuMaX2ZbE",
+"https://mega.nz/embed/JmV0EATJ#8jT4AR--Ov8UAgg7opZLz-nqCs7jeA_ppfGGmUeDPFM",
+"https://mega.nz/embed/susXAILS#fe94CexL7s4wnfLDsvBfO-KrfYPwbk7UrIJXi2CA9zI",
+"https://mega.nz/embed/Vn9HGaQY#qOH8JMsCDHOUaBfYB-aPSsTWh55NtXlgn03WMm5YC50",
+"https://mega.nz/embed/B2Ni0BpR#MlWDO3DIRQgvECjytq9l6Gys2TsJMhNgQYOVtW_dweU",
+"https://mega.nz/embed/kuFwzYYS#8aXt9mb-mTgbrVNsPIqlbxGz3v5wRpwc3r7JvGmy3Dw",
+"https://mega.nz/embed/9nkVVSDB#csjMWKwzsExSoBnyj1JFPLpIwcBOe2BDs3X8Z2PVM0E",
+"https://mega.nz/embed/EmckUTgQ#7ElgMse4AeZrSoFowNDy6HGYh0fWFabDY1SHbwUjGf4",
+"https://mega.nz/embed/giMFiTwY#eI1PbylyaKMaRHx-uGr1Cb16Bq91btn890sVvyPksyg",
+"https://mega.nz/embed/9q9zxAiI#0gZnWvh10q_FX9JakaCelkKypVCJd403s7ApFTMEdX4",
+"https://mega.nz/embed/dmNXEK5J#nFyk7YC0RkakNhffuq1AqlBsBn9B1Fuj9kJ4-LUTzIk",
+"https://mega.nz/embed/VmlyzCRD#J5K21IbvlUfg1KAF9R_NnF0Vr8CgerLpa9CZ740sVpk",
+"https://mega.nz/embed/xiFhlBoS#xP7uQwJztMger5-wgDLfkqruoQ1_IGZs1ukew42-LIk",
+"https://mega.nz/embed/F70BxaDI#5j4Pyp0c22Vdo8lcqWO0ziMxU928NfJKcGhV0wuWrVI",
+"https://mega.nz/embed/dm0QhQQK#f66OP6Yqi4UWfKtHDkzeJjZ6YpuM-01E02tKcTFgsnA",
+"https://mega.nz/embed/IqEiUYyL#bdlC9LEDf8M5DH31usCtpzsHMdj9zsUyAWhm4qP2jRM",
+"https://mega.nz/embed/g6dBUCCC#h8-yfFrRPOB-NWUJoUz2zs1tpJSEmDCdCLH0YZFAjAE",
+"https://mega.nz/embed/Br0mGByQ#rRR5z98TWztbVQ2hLz3cFZR3_OdUg9g6groAHFaQvZI",
+"https://mega.nz/embed/xyFQHaIR#axkUgQzikqJhhpND4rm_CFBYPowIdsuUT4x_DrGuQ9Y",
+"https://mega.nz/embed/FyNk1JwC#lth9HLYyrd73xSx7OgcGvA_GYs6eJiqYTDcPRahzYuY",
+"https://mega.nz/embed/E6MW2ZqZ#cFWlZR27l5pbozMjv8WnEjjXDaQdXmECeRdf5azp0y4",
+"https://mega.nz/embed/h70GDILb#X6uy1bhcHJBsu1isG6t_MVEL5LswsM8E4_wQ8eamTY0",
+"https://mega.nz/embed/R2EBwJBZ#RvVFpXVNzm7A7BKfqKuhZWjlVXM3VIryMbSJSZqk0iY"
+
+    ]
+])
+
+seriesContainer.push(YoujoSenki,KenjaNoMago,Overlord,LogHorizon,Castlevania, HellsParadise,TheEminenceInShadows, OnePiece,KimetsuNoYaiba)
