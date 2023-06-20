@@ -529,6 +529,19 @@ let KimetsuNoYaiba = new serie("Kimetsu no Yaiba",
  "https://mega.nz/embed/VH0DRLrT#dQXKNcQqM_F_V3WQp-RdkpOUzgIDxGmKCsCjluoUy0Y",
  "https://mega.nz/embed/gCVwDSDJ#7LCO8dRPHu4BXAcznTbsjrr94DMo2GGdheHI0LS8rIc",
  "https://mega.nz/embed/lOUhHDAD#3SvaxEVMM1B_ehZwyHTqDRw24teDqoDtcI7cxb20Aaw" 
+    ],
+    [    // Temporada 3
+ "https://mega.nz/embed/gPVklSgZ#utS0Od1lRKyMIWhtJqld-aTztlhr2EPKTsvSbqREln0",
+ "https://mega.nz/embed/8WsnSJJA#9lK91Da8mlWS9wgt99SAsXhayR9gt6QWT2IpAen2QcQ",
+ "https://mega.nz/embed/pKMCXbIa#NmcnQNdE2ZdApR6eTzFofpHKO-YTno3x9KXzUIifMGI",
+ "https://mega.nz/embed/dDllAKyB#Jdmxls9D5sujlmC1ITUsLty3NCZ4uN9vwpEM9jj_-0E",
+ "https://mega.nz/embed/YGN0EK6D#apuGekze3AA8QqWvJug8juANE-fwGcIwKUAKwbj4i2U",
+ "https://mega.nz/embed/BK12xAzJ#Z5vhDgjpGLs9CDo6k7Vtgx64COKoSEPQd0W9TWX7D0c",
+ "https://mega.nz/embed/4LdXzAQb#nLJA1ZDN23XeU1mPmpja3xP27LlS_fU_VAe94y338nw",
+ "https://mega.nz/embed/tWUj3AaI#9DxhCDUNTuY26P5Fdb9PEpSdp8fSEDnZTxUma2TH4S0",
+ "https://mega.nz/embed/1PNyDTRS#-5W9LUsRWzJhaM6y30d-g5f2bqc9QGGmmiFd5JaPE94",
+ "https://mega.nz/embed/4eElzBQJ#5iQDInJPCifCoGMWb1LGStCa_pBHxngD5e7HchLyKXk",
+ "https://mega.nz/embed/0Pl0UZzD#9A9BreqFRLSgy7zhJO4m1dbiIgWY1ReLbjTRq2AH81U"
     ]
 ])
 
