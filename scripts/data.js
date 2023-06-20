@@ -515,7 +515,20 @@ let KimetsuNoYaiba = new serie("Kimetsu no Yaiba",
 "https://mega.nz/embed/E6MW2ZqZ#cFWlZR27l5pbozMjv8WnEjjXDaQdXmECeRdf5azp0y4",
 "https://mega.nz/embed/h70GDILb#X6uy1bhcHJBsu1isG6t_MVEL5LswsM8E4_wQ8eamTY0",
 "https://mega.nz/embed/R2EBwJBZ#RvVFpXVNzm7A7BKfqKuhZWjlVXM3VIryMbSJSZqk0iY"
-
+    ],
+    
+    [    // Temporada 2 - Latino
+ "https://mega.nz/embed/oPETgb5Z#ft1ZLu4ygyhQLuMLWZhvPEKRlYydfeL0jalLuJ0kmho",
+ "https://mega.nz/embed/FCdjhIYa#EBb9HK8aQ6eufCyOYMfEmcCiQyquOjj9FTsLoI-lZ58",
+ "https://mega.nz/embed/MTs0hb6Q#NzYL4GcsmYUvydQ6QjP9OwNJU0SHwzCkBIkJ-nx9qAk",
+ "https://mega.nz/embed/AXtjSLjR#cOYyVKTenKIJ_WTbyhNY2mXAASZRezRgjxvsjsDrwcI",
+ "https://mega.nz/embed/VPFhxS7I#H5H1uwef-gcO7Ka7RUr1GjfWxZo2A5ZUchgfc5zXhug",
+ "https://mega.nz/embed/VfMlwYpZ#rQRLtipH8BMYESjiiyNUySf4DQ4CgvbLwIX5KxGUMJE",
+ "https://mega.nz/embed/VfN11AoI#N3rDefO6EAJhJyouZQFACm5WJzwFVoUWyaTvm4_esHM",
+ "https://mega.nz/embed/RLMEzKQK#U5o1Vg-Q53mEHmdnalJjW-yDrFiPR-zLbJjl4FDf_cE",
+ "https://mega.nz/embed/VH0DRLrT#dQXKNcQqM_F_V3WQp-RdkpOUzgIDxGmKCsCjluoUy0Y",
+ "https://mega.nz/embed/gCVwDSDJ#7LCO8dRPHu4BXAcznTbsjrr94DMo2GGdheHI0LS8rIc",
+ "https://mega.nz/embed/lOUhHDAD#3SvaxEVMM1B_ehZwyHTqDRw24teDqoDtcI7cxb20Aaw" 
     ]
 ])
 
