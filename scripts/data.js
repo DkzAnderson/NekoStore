@@ -2,20 +2,22 @@
 const interfazHome = document.getElementById('home');
 const interfazDescripcion = document.getElementById('serie-description');
 const interfazVideoPlayer = document.getElementById('video-player')
+// Interfaz de inicio
+let articlesHTML = [] // contenedor de los articulos en el html
 // Elementos de interfazDescripcion
 const descriptionImg = document.getElementById('serie-description__img')
 const descriptionTxt = document.getElementById('serie-description__txt')
 const descriptionTitle= document.getElementById('serie-description__title')
 const seasonTitle = document.getElementById('caps__temporada')
 const serieDescriptionSeason = document.getElementById('serie-description__season')
-const seasonContainer = [
+const seasonContainer = [    // botones de temporadas
 document.getElementById('T1'),
 document.getElementById('T2'),
 document.getElementById('T3'),
 document.getElementById('T4'),
 document.getElementById('T5')
 ]
-const descriptionCaps= [
+const descriptionCaps= [    // botones para seleccionar capitulos
     document.getElementById('ep1'),
     document.getElementById('ep2'),
     document.getElementById('ep3'),
@@ -89,7 +91,7 @@ const videoDescription = document.getElementById('media-description')
 const videoNext = document.getElementById('video-player__next')
 const videoBack = document.getElementById('video-player__back')
 //Otros
-let seriesContainer = []
+let seriesContainer = [] // contenedor de cada serie
 let serieSelected
 let seasonSelected = 0
 let capSelected = 1
@@ -97,6 +99,39 @@ interfazDescripcion.style.display = 'none'
 interfazHome.style.display = 'flex'
 interfazVideoPlayer.style.display = 'none'
 
+class article{
+    constructor(article,img,description){
+        this.article = document.getElementById(`${article}`)
+        this.img = document.getElementById(`${img}`)
+        this.description = document.getElementById(`${description}`)
+        this.name = ""
+    }
+
+    setDescription(name,img){
+        this.description.innerText = name
+        this.img.src = img
+        this.name = name
+    }
+}
+    // poster de cada serie en el html (<article>, imagen, texto)
+let article1 = new article('articleContainer1','articleImg1','articleTxt1')
+let article2 = new article('articleContainer2', 'articleImg2' ,'articleTxt2')
+let article3 = new article('articleContainer3', 'articleImg3' ,'articleTxt3')
+let article4 = new article('articleContainer4', 'articleImg4' ,'articleTxt4')
+let article5 = new article('articleContainer5', 'articleImg5' ,'articleTxt5')
+let article6 = new article('articleContainer6','articleImg6','articleTxt6')
+let article7 = new article('articleContainer7', 'articleImg7' ,'articleTxt7')
+let article8 = new article('articleContainer8', 'articleImg8' ,'articleTxt8')
+let article9 = new article('articleContainer9', 'articleImg9' ,'articleTxt9')
+let article10 = new article('articleContainer10', 'articleImg10' ,'articleTxt10')
+let article11 = new article('articleContainer11','articleImg11','articleTxt11')
+let article12 = new article('articleContainer12', 'articleImg12' ,'articleTxt12')
+let article13 = new article('articleContainer13', 'articleImg13' ,'articleTxt13')
+let article14 = new article('articleContainer14', 'articleImg14' ,'articleTxt14')
+let article15 = new article('articleContainer15', 'articleImg15' ,'articleTxt15')
+
+articlesHTML.push(article1,article2,article3,article4,article5,article6,article7,article8,
+                  article9,article10,article11,article12,article13,article14,article15)
 
 class serie{
     constructor(name,description,imgPoster,caps){
