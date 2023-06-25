@@ -1,35 +1,31 @@
 
 function selectSerie(serie){
-    let count = 0
-    //buscar en el contenedor de series, la serie seleccionada
-    seriesContainer.forEach(element => {
-        if(element.name == serie){
-            serieSelected = element
-        }
-    });
-    //coloca el texto de temporada 1 por defecto
-    if(seasonSelected == 4){
-        seasonTitle.innerText = `OVA`
-    } else{
-        seasonTitle.innerText = `Temporada ${seasonSelected+1}`
-    }
-    // dibuja los botones correspondientes según temporadas
-    count = serieSelected.caps.length
-    i= 0
-    seasonContainer.forEach(element => {
-        if(count != i){
-            element.style.display = 'flex'
-            i++
-        } else {
-            element.style.display = 'none'
-        }
 
-    });
+    serieSelected = seriesContainer[number]
 
-    setCaps(serieSelected);
-    serieSelected.setDescription();
-    interfazHome.style.display = 'none'
-    interfazDescripcion.style.display = 'flex'
+        //coloca el texto de temporada 1 por defecto
+        if(seasonSelected == 4){
+            seasonTitle.innerText = `OVA`
+        } else{
+            seasonTitle.innerText = `Temporada ${seasonSelected+1}`
+        }
+        // dibuja los botones correspondientes según temporadas
+        count = serieSelected.caps.length
+        i= 0
+        seasonContainer.forEach(element => {
+            if(count != i){
+                element.style.display = 'flex'
+                i++
+            } else {
+                element.style.display = 'none'
+            }
+    
+        });
+    
+        setCaps(serieSelected);
+        serieSelected.setDescription();
+        interfazHome.style.display = 'none'
+        interfazDescripcion.style.display = 'flex'
 
 }
 
@@ -187,3 +183,26 @@ function videoPlayer(direction){
         showCap(capSelected)
     }
 }
+
+function setInfo(){
+    let cuenta = 0
+    // agrega la descripcion de cada serie dentro de los articulos en el html
+    seriesContainer.forEach(element => {
+        if(cuenta <= seriesContainer.length){
+            let name = element.name
+            let poster = element.imgPoster
+            articlesHTML[cuenta].setDescription(name,poster)
+        }
+        cuenta++
+    });
+    articlesHTML[cuenta].article.style.display = 'none'
+
+    articlesHTML.forEach(element => {
+        if(cuenta <= articlesHTML.length){
+            element[cuenta].article.style.display = 'none'
+        }
+        cuenta++
+    });
+}
+
+setInfo();
