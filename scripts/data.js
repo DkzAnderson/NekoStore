@@ -251,7 +251,7 @@ let LogHorizon = new serie("Log Horizon",
 "de juego en línea de fantasía llamado Elder Tale.\n\n Para estos jugadores, lo que antes era un" + 
 "'mundo de espada y brujería' es ahora el 'mundo real'! El personaje principal es un hombre llamado Shiroe" + 
 "que se une a su viejo amigo Naotsugu y una hermosa asesina llamada Akatsuki mientras tratan de sobrevivir en este nuevo mundo.",
-'./assets/imgs/Log-horizon/Log-Horizon-poster.jpe',
+'./assets/imgs/Log-horizon/Log-Horizon-poster.webp',
 [
     [   // Temporada 1
         "https://mega.nz/embed/R3FVlKzI#e-bcvUJqqqFnzBFKD9qg1zxJOhkylyeYVcDhyTmwSKc",
@@ -312,7 +312,7 @@ let LogHorizon = new serie("Log Horizon",
 
 let Castlevania = new serie("Castlevania",
 "Un cazavampiros lucha por salvar una ciudad asediada por un ejército de bestias controladas por Drácula. Serie inspirada en el clásico videojuego.",
-"./assets/imgs/Castlevania/Castlevania-poster.jpeg",
+"./assets/imgs/Castlevania/Castlevania-poster.webp",
 [
     [   // Temporada 1
         "https://mega.nz/embed/8jszURaQ#TJ_0NBQQrQzrxHxQmnE21F7tYFUl6JJfZrSlO0Uj0gs",
@@ -353,7 +353,7 @@ let HellsParadise = new serie("Hell´s Paradise",
 "a la isla junto con el verdugo Yamada Asaemon Sagiri. Al llegar allí, se encuentran con otros condenados a muerte en busca del" + 
 "Elixir de la Vida... así como con una gran cantidad de criaturas desconocidas, estatuas espeluznantes hechas por el hombre y los" + 
 "ermitaños que gobiernan la isla. ¿Podrá Gabimaru encontrar el Elixir de la Vida en esta isla misteriosa y regresar vivo a casa?",
-"./assets/imgs/Hell´s-Paradise/Hell-paradise-poster.jpe",
+"./assets/imgs/Hell´s-Paradise/Hell-paradise-poster.jpg",
 [
     [   // Temporada 1
         "https://mega.nz/embed/gn9RBRhA#KEdidCRyuKFXuMmWwfWS7GHfWmpWt498L1uOBUUYkKI",
@@ -377,7 +377,7 @@ let TheEminenceInShadows = new serie("The Eminence in Shadows",
 "las condiciones perfectas para vivir sus sueños al máximo.\n\n Armado con su imaginación hiperactiva, Cid recluta en" + 
 "broma miembros para su organización e inventa toda una historia de fondo sobre un culto malvado que deben acabar. \nBueno,"+ 
 "por suerte, estos adversarios imaginarios resultan ser reales, ¡y todos saben la verdad menos él!",
-"./assets/imgs/The-Eminence-in-Shadows/The-Eminence-in-Shadows-poster.jpg",
+"./assets/imgs/The-Eminence-in-Shadows/The-Eminence-in-Shadows-poster.webp",
 [
     [   // Temporada 1
         "https://mega.nz/embed/Zn03TYhC#lcmnAL4AY0kZwyM5QiXGVjP9NPtNOZ4i8pwkUuAPgqg",
@@ -486,7 +486,7 @@ let KimetsuNoYaiba = new serie("Kimetsu no Yaiba",
 
 "Destrozado por los acontecimientos Tanjiro decide convertirse en un cazador de demonios para poder devolver a su" + 
 " hermana a la normalidad y matar al demonio que masacró a su familia.",
-"./assets/imgs/Kimetsu-No-Yaiba/Kimetsu-No-Yaiba-poster.jpg",
+"./assets/imgs/Kimetsu-No-Yaiba/Kimetsu-No-Yaiba-poster.webp",
 [
     [   // Temporada 1
 "https://mega.nz/embed/RyVQQIaK#2Q337aeQobM-FfoKdLOW6b59NqoWGQrpHiAR6D5HeIY",
