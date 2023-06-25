@@ -71,12 +71,13 @@ header a #home-button__L {
   flex-direction: column;
   justify-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: 50px;
   margin-bottom: 50px;
-  gap: 60px;
+  gap: 30px;
   height: auto;
 }
-@media (min-width: 600px) {
+@media (min-width: 500px) {
   .media-container {
     flex-direction: row;
     flex-wrap: wrap;
@@ -88,8 +89,9 @@ header a #home-button__L {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  max-width: 300px;
+  width: 80%;
+  min-width: 190px;
+  max-width: 200px;
   height: auto;
   text-align: center;
 }
@@ -99,7 +101,10 @@ header a #home-button__L {
   }
 }
 .media-container article img {
-  width: 50%;
+  width: 45%;
+  min-width: 145px;
+  max-width: 200px;
+  height: auto;
   border-radius: 5px;
   box-shadow: 0px 0px 30px #000000;
   cursor: pointer;
@@ -111,6 +116,9 @@ header a #home-button__L {
   font-family: none;
   font-size: 2.2rem;
   font-weight: 400;
+}
+.media-container article:hover p {
+  color: red;
 }
 
 #serie-description {
@@ -134,11 +142,19 @@ header a #home-button__L {
 #serie-description picture {
   display: flex;
   justify-content: center;
+  align-self: center;
+  width: 90%;
+  min-width: 290px;
+  max-width: 350px;
+  height: 55vh;
+  min-height: 425px;
+  max-height: 500px;
 }
 #serie-description picture #serie-description__img {
-  width: 80%;
-  min-width: 280px;
-  max-width: 290px;
+  width: 100%;
+  min-width: 215px;
+  max-width: 300px;
+  height: auto;
   border-radius: 5px;
 }
 #serie-description .serie-description__info {
@@ -175,6 +191,7 @@ header a #home-button__L {
   padding: 7px 25px;
   border: 1px solid #ffffff;
   border-radius: 25px;
+  cursor: pointer;
 }
 @media (min-width: 425px) {
   #serie-description .serie-description__info div button {
@@ -273,6 +290,7 @@ header a #home-button__L {
   font-size: 1.6rem;
   border: 1px solid white;
   border-radius: 8px;
+  cursor: pointer;
 }
 #serie-description .serie-description__caps ol li:hover {
   border: 1px solid red;
@@ -313,6 +331,7 @@ header a #home-button__L {
   background: none;
   border: none;
   padding: 2px;
+  cursor: pointer;
 }
 #video-player p {
   font-size: 1.7rem;
@@ -327,6 +346,7 @@ header a #home-button__L {
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: default;
 }
 @media (min-width: 425px) {
   #video-player p {
