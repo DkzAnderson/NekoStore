@@ -1,5 +1,5 @@
 
-function selectSerie(serie){
+function selectSerie(number){
 
     serieSelected = seriesContainer[number]
 
