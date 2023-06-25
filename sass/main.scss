@@ -95,12 +95,13 @@ header{
     flex-direction: column;
     justify-items: center;
     justify-content: center;
+    align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    gap: 60px;
+    gap: 30px;
     height: auto;
 
-    @media (min-width:600px) {
+    @media (min-width:500px) {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 45px;
@@ -111,8 +112,9 @@ header{
         display: flex;
         align-items: center;
         flex-direction: column;
-        width: 100%;
-        max-width: 300px;
+        width: 80%;
+        min-width: 190px;
+        max-width: 200px;
         height: auto;
         text-align: center;
         @media (min-width:600px) {
@@ -120,9 +122,13 @@ header{
             width: 40%;
         }
         img{
-            width: 50%;
+            width: 45%;
+            min-width: 145px;
+            max-width: 200px;
+            height: auto;
             border-radius: 5px;
             box-shadow: 0px 0px 30px #000000; 
+            cursor: pointer;
         }
         p{
             
@@ -132,6 +138,12 @@ header{
             font-family: none ;
             font-size: 2.2rem;
             font-weight: 400;
+        }
+    }
+
+    article:hover{
+        p{
+            color: red;
         }
     }
 }
@@ -157,10 +169,18 @@ header{
     picture{
         display: flex;
         justify-content: center;
+        align-self: center;
+        width: 90%;
+        min-width: 290px;
+        max-width: 350px;
+        height: 55vh;
+        min-height: 425px;
+        max-height: 500px;
         #serie-description__img{
-            width: 80%;
-            min-width: 280px;
-            max-width: 290px;
+            width: 100%;
+            min-width: 215px;
+            max-width: 300px;
+            height: auto;
             border-radius: 5px;
         }
     }
@@ -195,6 +215,7 @@ header{
                 padding: 7px 25px;
                 border: 1px solid #ffffff;
                 border-radius: 25px;
+                cursor: pointer;
             }
             button:hover{
                 border: 1px solid red
@@ -253,6 +274,7 @@ header{
                 font-size: 1.6rem;
                 border: 1px solid white;
                 border-radius: 8px;
+                cursor: pointer;
             }
 
             li:hover{
@@ -298,6 +320,7 @@ header{
             background: none;
             border: none;
             padding: 2px;
+            cursor: pointer;
         }
 
     }
@@ -313,6 +336,7 @@ header{
         background-color: white;
         border: 1px solid black;
         border-radius: 5px;
+        cursor: default;
         @media (min-width:425px) {
             padding: 9px;
         }
@@ -355,9 +379,3 @@ footer{
 
     }
 }
-
-
-
-
-
-    
