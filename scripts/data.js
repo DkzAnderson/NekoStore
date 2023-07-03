@@ -438,7 +438,7 @@ let TheEminenceInShadows = new serie("The Eminence in Shadows",
     ]
 ])
 
-let onePiece = new serie("One piece",
+let OnePiece = new serie("One piece",
 
 "One Piece es una serie de manga japonesa escrita e ilustrada por Eiichiro Oda." +
 "Ha sido serializado en la revista de manga shōnen de Shueisha Weekly " + 
