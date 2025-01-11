@@ -6,3 +6,5 @@ const PageMainData = {
     logo: '',
     
 }
+
+console.log(PageMainData);
