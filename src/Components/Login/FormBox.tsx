@@ -2,10 +2,8 @@ import { Form, Link, useNavigate } from 'react-router-dom'
 import { InputBox } from "./InputBox";
 import { toast } from 'react-toastify';
 import { DotLoader } from 'react-spinners';
+import { SingInWithMailAndPassword } from '../../Data/Firebase';
 
-import { firebaseConfig } from '../FireBase/DataBase';
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 
 const Alert = (type:string,txt:string) => {
@@ -45,11 +43,11 @@ const override = {
     display: "block",
     margin: "0 auto",
     borderColor: "red",
-  };
+};
 
 
 export const FormBox = () => {
-
+    const navigate = useNavigate();
     const [loading, setLoading] = useState<boolean>(false);
 
     const styles = {
@@ -80,7 +78,6 @@ export const FormBox = () => {
     function GetData(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
-
         const mail = (formData.get('mail') || '') as string;
         const password = (formData.get('password') || '') as string;
 
@@ -91,46 +88,14 @@ export const FormBox = () => {
                     'La contraseña debe tener más de 4 carácteres.'
                 )
                 :
-                SingInWithMailAndPassword(mail, password)
-        }
-    }
-
-    const navigate = useNavigate();
-
-    async function SingInWithMailAndPassword(mail: string, password: string) {
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        signInWithEmailAndPassword(auth, mail, password)
-            .then(() => {
-                // conexión exitosa.
-                Alert(
-                    'success',
-                    'Inicio de sesión exitoso.'
-                );
-                setLoading(false);
+                SingInWithMailAndPassword(mail, password,setLoading,navigate)
                 
-                setTimeout(() => {
-                    navigate('/');
-                }, 2000)
-                                
-            })
-            // error
-            .catch((error) => {
-                //const errorCode = error.code;
-                const errorMessage = error.message;
-                setLoading(false);
-                Alert(
-                    'error',
-                    errorMessage
-                )
-            });
+        }
     }
 
     return (
         <section className={styles.main}>
-
+            {/* Contenido */}
             <div className={styles.content}>
 
                 <Form
@@ -175,7 +140,7 @@ export const FormBox = () => {
                 </div>
 
             </div>
-
+            {/* Spinner de carga */}
             <div className={styles.spinner}>
                 <DotLoader 
                     color={spinner.color}

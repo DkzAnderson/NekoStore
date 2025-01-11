@@ -4,20 +4,14 @@ import { FaCircleUser } from "react-icons/fa6";
 import { FaUserEdit } from "react-icons/fa";
 import { FaUserAltSlash } from "react-icons/fa";
 
-import { Alert } from "../../Alerts";
+import { 
+    LogOut, CheckSession,
+    UserStateChange
+} from "../../Data/Firebase";
+
 import { useEffect, useState } from "react";
-import { firebaseConfig } from "../FireBase/DataBase";
-import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import {  User } from "firebase/auth";
 import { MenuIcon } from "./MenuIcon";
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
-
-
-
 
 
 export const NavBar: React.FC = () => {
@@ -39,7 +33,7 @@ export const NavBar: React.FC = () => {
 
         list: 'flex flex-col p-2',
         item: 'flex gap-2 items-center py-1',
-        itemIcon: 'border-2 rounded-full border-rd size-10 flex items-center justify-center overflow-hidden text-2xl bg-st/75',
+        itemIcon: 'border-2 bg-st-200 rounded-full border-rd size-10 flex items-center justify-center overflow-hidden text-2xl bg-st/75',
         itemName: '',
         userPhoto: 'size-full object-cover',
 
@@ -48,7 +42,7 @@ export const NavBar: React.FC = () => {
             menuBtn: `w-14 h-full flex items-center justify-center duration-300`,
             userBtn: 'size-10 border-2 flex items-center justify-center rounded-full overflow-hidden',
             defaultIcon: 'text-5xl text-[#ededed]',
-            userImg: ' size-full object-cover'
+            userImg: 'size-full object-cover'
         }
     }
 
@@ -66,56 +60,17 @@ export const NavBar: React.FC = () => {
 
     ]
 
-
-    const LogOut = () => {
-        // Cerrar sesión
-        auth.signOut().then(function () {
-            console.log('Usuario ha cerrado sesión');
-            Alert(
-                'success',
-                'Sesión cerrada exitosamente.'
-            )
-        }).catch(function (error) {
-            console.error('Error al cerrar sesión', error);
-            Alert(
-                'error',
-                error
-            )
-        });
-    }
-
     //Verificar si se ah iniciado sesion al montar
     // el componente
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser) { // Usuario ha iniciado sesión 
-                setUser(currentUser);
-            } else {
-                // Usuario no ha iniciado sesión
-                setUser(null);
-            }
-
-        })
-
-        return () => unsubscribe();
+        UserStateChange(setUser);
 
     }, [user,menuIsOpen]);
 
     //Verifica la sesion cada 10 minutos
     useEffect(() => {
-
-        const checkSession = () => {
-            // Verificar sesion
-            if (auth.currentUser) {
-                setUser(auth.currentUser);
-                console.log(auth.currentUser)
-            } else {
-                setUser(null);
-            }
-        };
-
         const interval = setInterval(() => {
-            checkSession();
+            CheckSession(setUser);
         }, 10 * 60 * 1000); // Verifica cada 10 minutos
 
         return () => clearInterval(interval);
@@ -123,6 +78,7 @@ export const NavBar: React.FC = () => {
 
     return (
         <div className="fixed z-50 top-0 left-0 flex flex-col w-full overflow-hidden ">
+            {/* Header para moviles */}
             <header className={styles.header.main}>
                 {/* 
                 Terminar de modificar este boton,
@@ -161,7 +117,7 @@ export const NavBar: React.FC = () => {
                 </span>
 
             </header>
-
+            {/* Menu dezplazable - Opciones del menu */}
             <div className={styles.main}>
                 <div className={styles.content}>
 
@@ -199,9 +155,8 @@ export const NavBar: React.FC = () => {
                             <li
                                 className={styles.item}
                                 onClick={() => {
-                                    LogOut()
+                                    LogOut(navigate)
                                     setMenuIsOpen(false)
-                                    navigate('/')
                                 }}
                             >
                                     <span className={styles.itemIcon}>

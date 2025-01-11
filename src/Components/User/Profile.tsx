@@ -1,20 +1,17 @@
-import { firebaseConfig } from "../FireBase/DataBase";
-import { initializeApp } from "firebase/app";
+import { User } from "firebase/auth";
 import { 
-    getAuth, onAuthStateChanged, 
-    User , updateProfile
-} from "firebase/auth";
+    UpdateUserNameAndPhoto,
+    CheckUserState
+ } from "../../Data/Firebase";
 import { useEffect, useState, FormEvent } from "react";
+
 import { DotLoader } from 'react-spinners';
 import { BsFillPencilFill } from "react-icons/bs";
 import { Form, useNavigate } from "react-router-dom";
 import { ProfileInput } from "./ProfileInput";
 import { ProfileImageEdit } from "./ProfileImageEdit";
-import { Alert } from "../../Alerts";
 
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
 // Definición de tipos para los inputs del formulario 
 interface ProfileFormElements extends HTMLFormControlsCollection { 
@@ -34,92 +31,16 @@ const override = {
     borderColor: "red",
 };
 
-
-  /*
-
-  Actualizar datos de usuario
-  
-  import { getAuth, updateProfile } from "firebase/auth";
-
-  const auth = getAuth();
-updateProfile(auth.currentUser, {
-  displayName: "Jane Q. User", 
-  photoURL: "https://example.com/jane-q-user/profile.jpg"
-}).then(() => {
-  // Profile updated!
-  // ...
-}).catch((error) => {
-  // An error occurred
-  // ...
-});
-
--------------------------------
-Actualizar Email de usuario
-
-import { getAuth, updateEmail } from "firebase/auth";
-
-const auth = getAuth();
-updateEmail(auth.currentUser, "user@example.com").then(() => {
-  // Email updated!
-  // ...
-}).catch((error) => {
-  // An error occurred
-  // ...
-});
-  
----------------------------------
-  Configurar contraseña de un usuario
-
-  import { getAuth, updatePassword } from "firebase/auth";
-
-const auth = getAuth();
-
-const user = auth.currentUser;
-const newPassword = getASecureRandomPassword();
-
-updatePassword(user, newPassword).then(() => {
-  // Update successful.
-}).catch((error) => {
-  // An error ocurred
-  // ...
-});
-
---------------------------------------
-
-Enviar correo electronico de reestablecimiento
-de contraseña
-
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-
-const auth = getAuth();
-sendPasswordResetEmail(auth, email)
-  .then(() => {
-    // Password reset email sent!
-    // ..
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-
-  
-  */
-
-
 export const Profile = () => {
-
     const navigate = useNavigate();
 
     const [currentUser,setUser] = useState< User | null >(null)
     const [loading,setLoading] = useState< boolean >(true);
     const [editImageProfile,setEditImage] = useState(false);
-
     const [profileImage, setProfileImage] = useState< string >('');
     const [backgroundImage, setBackgroundImage] = useState <string>('');
-
     const [userNameRef,setUserNameRef] = useState<number>(0);
-    //activa el boton de guardado del formulario - linea 205
+    //activa el boton de guardado del formulario - linea 196
     const [isFormValid, setIsFormValid] = useState <boolean> (true);
     // false = datos de usuario
     // true = editar datos de usuario
@@ -135,9 +56,9 @@ export const Profile = () => {
         contentBox: {
             main: 'flex relative flex-col place-items-center w-full max-w-96',
             topSide: 'w-full flex items-center justify-center',
-            profileImageBox: 'relative size-[200px] rounded-full border-[3px] border-[#fff]',
+            profileImageBox: 'relative size-[200px] rounded-full border-[3px] border-white',
             profileImage: 'size-full rounded-full object-cover',
-            imageBtn: 'absolute -bottom-0 right-2 border-[4px] border-st-100 rounded-full p-2 bg-white text-2xl',
+            imageBtn: 'absolute -bottom-0 right-2 border-[4px] border-st-100 rounded-full p-2 bg-white text-2xl hover:text-rd hover:bg-gray-300',
             formMain: 'flex flex-col gap-5 w-full ',
             texts: '',
             titles: '',
@@ -156,13 +77,13 @@ export const Profile = () => {
             dataBox: 'flex flex-col w-full',
             titles: 'text-gray-500 text-sm font-bold',
             data: 'text-white text-lg',
-            button: 'bg-lime-600 w-full h-[55px] rounded-lg text-white font-bold text-lg'
+            button: ' w-full h-[55px] rounded-lg text-white font-bold text-lg bg-rd hover:bg-nd'
         },
 
         bottomSide: {
             main: 'w-full flex gap-5 mt-4 font-bold',
-            buttonSave: 'w-full h-[55px] sm:h-[50px] text bg-lime-600 hover:bg-lime-700 text-white rounded-lg disabled:bg-gray-500',
-            buttonCancel: 'w-full h-[55px] sm:h-[50px] text bg-red-500  hover:bg-red-700  text-white  rounded-lg disabled:text-gray-400'
+            buttonSave: 'w-full h-[55px] sm:h-[50px] text bg-rd hover:bg-nd text-white rounded-lg disabled:bg-gray-500',
+            buttonCancel: 'w-full h-[55px] sm:h-[50px] text bg-red-600  hover:bg-red-800  text-white  rounded-lg disabled:text-gray-400'
         },
 
         imageProfileEdit: `fixed top-0 left-0 bg-st-100/75 z-10 ${editImageProfile ? 'w-full h-full' : 'w-0 h-0'} duration-300`
@@ -181,39 +102,15 @@ export const Profile = () => {
         const formElements = e.currentTarget.elements; 
         const name = formElements.name.value; 
 
-        if (auth.currentUser != null) {
-            updateProfile(auth.currentUser, {
-                displayName: name,
-                photoURL: profileImage,
-            }).then(() => {
-                Alert(
-                    'success',
-                    'Perfil actualizado.'
-                )
-                setTimeout(()=>{
-                    setInterfaz(false);
-                },1500)
-            }).catch((error) => {
-                console.log(error)
-            });
-        }
+        UpdateUserNameAndPhoto(setInterfaz,name);
     }
 
-
     useEffect(()=>{
-        const checkUserState = async ()=> onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // Usuario conectado
-                setUser(user);
-                setLoading(false);
-                user.photoURL != null && setProfileImage(user.photoURL);
-            } else {
-                // Usuario no conectado
-                setLoading(false)
-            }
-        });
-
-        checkUserState();
+        CheckUserState(
+            setUser,
+            setLoading,
+            setProfileImage
+        );
     },[])
 
     useEffect(() => { 

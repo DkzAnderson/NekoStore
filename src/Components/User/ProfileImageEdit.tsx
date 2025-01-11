@@ -1,16 +1,7 @@
-import { firebaseConfig } from "../FireBase/DataBase";
-import { initializeApp } from "firebase/app";
 import { useEffect, useState } from "react";
 import { ProfileImageSlider } from "./ProfileImageSlider";
 import { IoClose } from "react-icons/io5";
-import { Alert } from "../../Alerts";
-import { getAuth, updateProfile } from "firebase/auth";
-
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
+import { UpdateUserNameAndPhoto } from "../../Data/Firebase";
 
 interface Props {
   isShow: boolean;
@@ -21,8 +12,6 @@ interface Props {
   setProfileImage: Function;
   setBackgroundImage: Function;
 }
-
-
 
 export const ProfileImageEdit: React.FC<Props> = ({
   isShow,setShow,
@@ -36,21 +25,12 @@ export const ProfileImageEdit: React.FC<Props> = ({
       const SaveChanges = ()=>{
         setBackgroundImage(currentBgImage);
         setProfileImage(currentProfileImage);
-  
-          if (auth.currentUser != null) {
-              updateProfile(auth.currentUser, {
-                  photoURL: currentProfileImage,
-              }).then(() => {
-                  Alert(
-                      'success',
-                      'Imagen de perfil actualizada.'
-                  )
 
-                    setShow(false)
-              }).catch((error) => {
-                  console.log(error)
-              });
-          }
+        UpdateUserNameAndPhoto(
+          setShow,null,
+          currentProfileImage
+        );
+
       }
 
 
@@ -67,11 +47,11 @@ export const ProfileImageEdit: React.FC<Props> = ({
 
     buttonBox: {
       main: 'mt-4 w-full max-w-60',
-      saveBtn: 'rounded-lg bg-lime-600 size-full h-[55px] font-bold text-white'
+      saveBtn: 'rounded-lg bg-rd active:bg-nd hover:bg-nd size-full h-[55px] font-bold text-white'
     },
 
 
-    closeBtn: 'absolute text-2xl rounded-full p-1 bg-white border top-2 right-2'
+    closeBtn: 'absolute text-2xl rounded-full p-1 bg-white hover:bg-rd hover:border-rd hover:text-white border top-2 right-2'
   }
 
   useEffect(()=>{
