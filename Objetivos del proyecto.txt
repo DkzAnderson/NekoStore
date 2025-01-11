@@ -1,0 +1,30 @@
+Modificaciones / mejoras a la Neko Store. 
+
+- Cambiar el logo de la página 
+- Crear un archivo donde se encuentren los datos generales de la página: 
+ 
+1. Nombre de la página 
+2. Logo 
+3. Opciones del menú ( con urls e iconos si los tiene ) 
+4. Información del footer ( urls de redes sociales, entre otros) 
+
+- modificar el tamaño de fuentes. 
+- Agregar Sistema de usuarios 
+ 
+   1. Registro 
+   2. Login 
+   3. Perfil de usuario 
+   4. Edición de perfil 
+     - Avatar / Imagen de perfil 
+     - Nombre de usuario
+     - email
+     - numero de celular
+     - ultimas 10 series vistas
+     con el episodio en el que quedo.
+     
+     
+- Implementar Base de datos. (Revisar la estructura de las series y sus episodios) 
+- Pantallas de carga 
+- modificar el enrutamiento 
+- página de error 
+- funcion para buscar serie por nombre / Tag / categorías
