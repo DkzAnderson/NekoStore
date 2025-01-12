@@ -1,11 +1,23 @@
 import { initializeApp } from "firebase/app";
+import { Alert } from "../Alerts";
+import { Serie } from "./Data";
+
+import { 
+    getFirestore ,doc, 
+    setDoc,updateDoc ,
+    collection, addDoc,
+    arrayUnion, arrayRemove,
+    getDoc, getDocs
+} from "firebase/firestore";
+
 import { 
     onAuthStateChanged , 
     updateProfile,getAuth,  
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword
 } from "firebase/auth";
-import { Alert } from "../Alerts";
+
+
 
 export const firebaseConfig = {
     apiKey: "AIzaSyARtQZDilbg2k78VGhobqLOY_ZiWl8x5e4",
@@ -17,8 +29,10 @@ export const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 const auth = getAuth(app);
 
+    /* Usuario, Autenticación, Actualización de usuario y Similares.*/
 
 // iniciar sesion con email y password
 export const SingInWithMailAndPassword = async (mail: string, password: string, setLoading: Function, to: Function) => {
@@ -72,7 +86,8 @@ export const LogOut = async (to: Function) => {
 }
 // Registrar usuario nuevo
 export const RegisterNewUser = async (
-    email: string,password: string,
+    email: string,
+    password: string,
     load: Function,to: Function
 )=>{
             createUserWithEmailAndPassword(auth, email, password)
@@ -137,7 +152,7 @@ export const UserStateChange = async (setUser:Function) => {
 
     return () => unsubscribe();
 }
-
+//revision de usuario activo
 export const CheckUserState = async (
     setUser: Function,
     setLoading: Function,
@@ -158,12 +173,11 @@ export const CheckUserState = async (
     Check();
 
 }
-
+//revision de sesion activa
 export const CheckSession = async (setUser: Function) => {
     // Verificar sesion
     if (auth.currentUser) {
         setUser(auth.currentUser);
-        console.log(auth.currentUser)
     } else {
         setUser(null);
     }
@@ -199,13 +213,125 @@ export const UpdateUserNameAndPhoto = async (
     }
 } 
 
+/* Agregar/actualizar datos en la db */
 
+// convierte una 'Serie' en un objeto regular
+// para que se pueda subir con 'setDoc'
+const ConvertToObject = (serie: Serie): Record<string, any> => { 
+    return { 
+        name: serie.name, 
+        seasons: serie.seasons.map(season => ({
+             name: season.name, 
+             episodes: season.episodes, 
+             image: season.image 
+            })), images: serie.images, 
+            categories: serie.categories, 
+            description: serie.description 
+        }; 
+};
+//actualiza una serie
+export const UploadNewSerie = async (data:Serie,collectionId:string='series')=>{
 
+    const dataConverted = ConvertToObject(data);
 
+    
+    try { 
+        const docRef = doc(db, collectionId, data.name);
+         await setDoc(docRef, dataConverted)
+        } catch (e) { 
+        console.error("Error adding document: ", e); 
+    }
+    
+}
 
+// sin aparente uso por ahora
+const AddDataToDb = async ()=>{
+    // Crea una colección nueva y un documento
+    try {
+        const docRef = await addDoc(collection(db, "users"), {
+          first: "Ada",
+          last: "Lovelace",
+          born: 1815
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+}
+const CreateNewDoc = async (data:object)=>{
 
+    // Agrega un nuevo documento en la coleccion 'cities'
+    await setDoc(doc(db, "series", "LS"),data);
 
+    // Combina los datos del documento anterior con el enviado
+    //const cityRef = doc(db, 'cities', 'BJ');
+    //setDoc(cityRef, { capital: true }, { merge: true });
+}
+const UpdateValue = async ()=>{
+    const washingtonRef = doc(db, "cities", "DC");
+// Actualiza sin reemplazar 
+// Set the "capital" field of the city 'DC'
+await updateDoc(washingtonRef, {
+  capital: true
+});
 
+// Actuaiza campos de objetos anidados
+// Create an initial document to update.
+const frankDocRef = doc(db, "users", "frank");
+await setDoc(frankDocRef, {
+    name: "Frank",
+    favorites: { food: "Pizza", color: "Blue", subject: "recess" },
+    age: 12
+});
+
+// To update age and favorite color:
+await updateDoc(frankDocRef, {
+    "age": 13,
+    "favorites.color": "Red"
+});
+
+// Actualizar Arrays
+//const washingtonRef = doc(db, "cities", "DC");
+
+// ArrayUnion agrega elementos a un arreglo (si no estan presentes en el)
+
+await updateDoc(washingtonRef, {
+    regions: arrayUnion("greater_virginia")
+});
+// ArrayRemove elimina todos los elementos de un arreglo
+// Atomically remove a region from the "regions" array field.
+await updateDoc(washingtonRef, {
+    regions: arrayRemove("east_coast")
+});
+
+}
+
+/* Lectura de datos */
+
+//obtiene una unica serie mediande su 'id'=nombre de la serie
+export const GetSerieFromDb = async (id: string) => {
+    const docRef = doc(db, "series", id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+    } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}
+// obtiene todas las series de una coleccion
+export const GetAllSeriesFromDb = async (collectionId:string) => {
+    let data : Array<object>= [];
+    //obtener datos
+    const querySnapshot = await getDocs(collection(db,collectionId));
+    //recorrer array de datos obtenidos
+    querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+    });
+    //devolver array con datos
+    return data;
+}
 
 
 /*

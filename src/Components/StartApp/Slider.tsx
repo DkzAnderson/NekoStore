@@ -5,7 +5,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 interface Image {
   name: string;
-  img: string;
+  imgs: string[];
 }
 
 interface ImageSliderProps {
@@ -32,8 +32,8 @@ export const Slider: React.FC<ImageSliderProps> = ({ images }) => {
   }, [images.length]);
 
   return (
-    <section className='w-full'>
-      <div className="relative w-full h-[480px] overflow-hidden">
+    <section className='size-full'>
+      <div className="relative size-full overflow-hidden">
         {/* Cambiar contendor por un 'Link' y agregar url de serie */}
         <div
           className="absolute inset-0 flex transition-transform duration-700 ease-in-out"
@@ -44,12 +44,23 @@ export const Slider: React.FC<ImageSliderProps> = ({ images }) => {
         >
           {images.map((image, index) => (
             <div key={index} className="w-full sm:h-[90%] flex sm:justify-center flex-shrink-0">
-              <picture className='w-full sm:w-1/2 flex relative'>
+              <picture className='w-full flex relative'>
                 <img
-                  src={image.img}
+                  src={image.imgs[0]}
                   alt={`Slide ${index}`}
                   loading='lazy'
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover flex sm:hidden"
+                  style={{
+                    // Imagen con degradado en parte inferior
+                    WebkitMaskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%)',
+                    maskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%)',
+                  }}
+                />
+                <img
+                  src={image.imgs[1]}
+                  alt={`Slide ${index}`}
+                  loading='lazy'
+                  className="w-full h-full object-cover hidden sm:flex"
                   style={{
                     // Imagen con degradado en parte inferior
                     WebkitMaskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%)',

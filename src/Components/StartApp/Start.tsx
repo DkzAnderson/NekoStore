@@ -1,5 +1,13 @@
 import { Hero } from "./Hero"
+import { seriesData } from "../../Data/Data"
+import { GetAllSeriesFromDb, UploadNewSerie } from "../../Data/Firebase"
 
+const getData = async ()=>{
+  const x = await GetAllSeriesFromDb('lastUpdated')
+  console.log(x);
+}
+
+getData();
 
 export const Start = () => {
 
