@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Slider } from "./Slider"
 import { DotLoader } from 'react-spinners';
-import { GetAllSeriesFromDb } from "../../Data/Firebase";
+import { GetAllSeriesFromDb } from "../FireBase/DbFunctions";
 
 interface Image {
   name: string;

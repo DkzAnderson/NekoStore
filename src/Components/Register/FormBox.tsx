@@ -3,7 +3,7 @@ import { InputBox } from '../Login/InputBox';
 import { DotLoader } from 'react-spinners';
 import { Alert } from '../../Alerts';
 
-import { RegisterNewUser } from '../../Data/Firebase';
+import { RegisterNewUser } from '../FireBase/UserFunctions';
 import { useState } from 'react';
 
 const override = {
@@ -19,11 +19,11 @@ export const FormBox = () => {
 
     const styles = {
         main  : 'size-full flex flex-col items-center justify-center ',
-        content: 'w-full flex flex-col bg-st-200 rounded p-3',
+        content: 'w-full max-w-[340px] flex flex-col bg-st-200 rounded p-2',
 
-        title: 'text-lg text-center text-white font-bold mt-5',
-        formMain: 'flex flex-col gap-10 justify-start p-4',
-        formBtn: 'rounded text-white mt-10 bg-rd text-2xl font-bold py-2 active:bg-nd hover:bg-nd duration-300',
+        title: 'text-lg text-center text-white font-bold mt-5 sm:mt-2 sm:pb-2',
+        formMain: 'flex flex-col gap-8 sm:gap-4 justify-start p-4 sm:px-4 sm:pt-0',
+        formBtn: 'rounded h-[55px] text-white mt-10 bg-rd text-2xl font-bold py-2 active:bg-nd hover:bg-nd duration-300',
 
         bottomBox: {
             main: 'flex gap-1 text-white justify-center items-center min-h-10',
@@ -82,7 +82,7 @@ export const FormBox = () => {
             </h1>
 
             <hr 
-                className='w-[30%] h-[1px] bg-white self-center my-3'
+                className='w-[30%] h-[1px] bg-white self-center my-3 sm:my-0'
             />
 
             <Form

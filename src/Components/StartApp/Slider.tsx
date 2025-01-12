@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import 'tailwindcss/tailwind.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 

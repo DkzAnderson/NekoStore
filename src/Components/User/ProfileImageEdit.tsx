@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ProfileImageSlider } from "./ProfileImageSlider";
 import { IoClose } from "react-icons/io5";
-import { UpdateUserNameAndPhoto } from "../../Data/Firebase";
+import { UpdateUserNameAndPhoto } from "../FireBase/UserFunctions";
 
 interface Props {
   isShow: boolean;

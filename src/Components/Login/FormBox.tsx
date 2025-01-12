@@ -2,7 +2,7 @@ import { Form, Link, useNavigate } from 'react-router-dom'
 import { InputBox } from "./InputBox";
 import { toast } from 'react-toastify';
 import { DotLoader } from 'react-spinners';
-import { SingInWithMailAndPassword } from '../../Data/Firebase';
+import { SingInWithMailAndPassword } from '../FireBase/UserFunctions';
 
 import { useState } from 'react';
 

@@ -33,21 +33,22 @@ export const InputBox : React.FC<Props> = ({type,name,title}) => {
     let styles = {
         main : 'size-auto flex',
         content: 'w-full flex items-end relative min-h-16  ',
-        input: 'relative bg-transparent z-10 border-b-2 w-full max-w-full text-xl outline-none py-2 px-1 truncate text-gray-400 focus:border-rd focus:text-white',
-        title: `absolute z-0 left-6 text-xl font-bold duration-300 ${onFocus ? 'text-rd' : 'text-white'} `,
+        input: 'relative bg-transparent z-10 border-b-2 w-full max-w-full text-xl sm:text-base outline-none py-2 sm:py-0 px-1 truncate text-gray-400 focus:border-rd focus:border-b-[2px] focus:text-white',
+        title: `absolute z-0 left-6 text-xl sm:text-base font-bold duration-300 ${onFocus ? 'text-rd' : 'text-white'} `,
         iconBox: 'absolute z-10 -left-1 p-1 duration-300 ',
-        icon: ` ${onFocus ? 'text-rd' : 'text-white'} text-xl duration-300`
+        icon: ` ${onFocus ? 'text-rd' : 'text-white'} text-xl sm:text-lg duration-300`,
+        underText: 'absolute -bottom-6 text-sm sm:text-[12px] text-gray-400'
     }
 
     // Movimiento del PlaceHolder + icono
     if(isEmpty == false){
         // si no esta vacio
-        styles.title += '-translate-y-12'
-        styles.iconBox += '-translate-y-12'
+        styles.title += '-translate-y-12 sm:-translate-y-8'
+        styles.iconBox += '-translate-y-12 sm:-translate-y-8'
     } else if(onFocus) {
         // si esta en foco
-       styles.title += '-translate-y-12';
-       styles.iconBox += '-translate-y-12'
+       styles.title += '-translate-y-12 sm:-translate-y-8';
+       styles.iconBox += '-translate-y-12 sm:-translate-y-8'
     } else {
         styles.title += '-translate-y-1'
         styles.iconBox += '-translate-y-1'
@@ -83,7 +84,7 @@ export const InputBox : React.FC<Props> = ({type,name,title}) => {
         </span>
         {
             type === 'password' ?
-            <h5 className="absolute -bottom-6 text-sm text-gray-400">
+            <h5 className={styles.underText}>
                 {
                     type === 'password' && name != 're-password' ? 
                     'Debe tener al menos 6 caracteres.' :

@@ -1,8 +1,9 @@
 import { User } from "firebase/auth";
 import { 
-    UpdateUserNameAndPhoto,
+    UpdateUserNameAndPhoto ,
     CheckUserState
- } from "../../Data/Firebase";
+} from "../FireBase/UserFunctions";
+
 import { useEffect, useState, FormEvent } from "react";
 
 import { DotLoader } from 'react-spinners';
@@ -48,36 +49,25 @@ export const Profile = () => {
 
     const styles = {
         main : 'flex flex-col items-center justify-center w-full min-h-screen bg-st-100 z-50',
-        content: 'w-full max-w-[400px] lg:max-w-[1024px] px-[36px] flex',
+        content: 'w-full mt-4 max-w-[400px] px-[36px] flex flex-col',
         
-        title: 'pb-6 text-white font-bold text-2xl text-center',
+        title: 'pb-6 sm:pb-6 text-white font-bold text-2xl text-center',
     
         // interfaz de edición 
         contentBox: {
-            main: 'flex relative flex-col place-items-center w-full max-w-96',
+            main: 'flex relative flex-col place-items-center w-full max-w-96 gap-2',
             topSide: 'w-full flex items-center justify-center',
-            profileImageBox: 'relative size-[200px] rounded-full border-[3px] border-white',
-            profileImage: 'size-full rounded-full object-cover',
-            imageBtn: 'absolute -bottom-0 right-2 border-[4px] border-st-100 rounded-full p-2 bg-white text-2xl hover:text-rd hover:bg-gray-300',
+            //imagen de perfil
+            imageBox: 'relative size-[160px] rounded-full border-[3px] border-white',
+            image: 'size-full rounded-full object-cover',
+            btnBox: 'absolute -bottom-0 right-2 border-[4px] border-st-100 rounded-full p-2 bg-white text-2xl hover:text-rd hover:bg-gray-300',
+            // formulario
+            hr: 'w-[15%] h-[1px] mt-10 mb-12 sm:mb-10 bg-gray-400',
             formMain: 'flex flex-col gap-5 w-full ',
-            texts: '',
-            titles: '',
-            
-        },
-        // interfaz de datos de usuario
-        userData : {
-            main: 'flex relative flex-col place-items-center w-full max-w-96 gap-6',
-            topSide: 'relative w-full h-32 shadow-[0_0_15px_0px] shadow-transparent hover:shadow-white/50 rounded-[5px]',
-            topSideImage: 'size-full object-cover rounded-[5px]',
-            topBtn: 'absolute bottom-1 right-1 border-2 rounded-full p-1 bg-white',
-            profileImageBox: 'absolute size-[110px] rounded-full top-[70px] border-[3px] border-[#fff]',
-            profileImage: 'size-full rounded-full object-cover',
-            imageBtn: 'absolute -bottom-2 -right-2 border-[4px] border-st-100 rounded-full p-2 bg-white text-lg',
-            
             dataBox: 'flex flex-col w-full',
             titles: 'text-gray-500 text-sm font-bold',
-            data: 'text-white text-lg',
-            button: ' w-full h-[55px] rounded-lg text-white font-bold text-lg bg-rd hover:bg-nd'
+            data: 'text-white text-lg sm:text-base',
+            button: ' w-full mt-6 sm:mt-8 h-[55px] sm:h-[45px] rounded-lg text-white font-bold text-lg bg-rd hover:bg-nd'
         },
 
         bottomSide: {
@@ -150,23 +140,24 @@ export const Profile = () => {
     if(currentUser && interfaz === true){
         return (
             <section className={styles.main}>
+
+                <div className={styles.content}>
                 <h1 className={styles.title}>
                     EDITAR PERFIL
                 </h1>
-                <div className={styles.content}>
                     {/* Contenido principal */}
                     <div className={styles.contentBox.main}>
 
-                        <div className={styles.contentBox.profileImageBox}>
+                        <div className={styles.contentBox.imageBox}>
 
                             <img
-                                className={styles.contentBox.profileImage}
+                                className={styles.contentBox.image}
                                 src={profileImage}
                                 alt='user-profile-image'
                             />
 
                             <button
-                                className={styles.contentBox.imageBtn}
+                                className={styles.contentBox.btnBox}
                                 onClick={() => setEditImage(true)}
                             >
                                 <BsFillPencilFill />
@@ -174,7 +165,7 @@ export const Profile = () => {
                         </div>
 
                         <hr
-                            className="w-[10%] h-[1px] mt-20 mb-[20px] bg-[#fff]"
+                            className={styles.contentBox.hr}
                         />
 
                             {/* Edicion de perfil */}
@@ -227,23 +218,24 @@ export const Profile = () => {
     if(currentUser && interfaz ===  false){
         return (
             <section className={styles.main}>
+
+                <div className={styles.content}>
                 <h1 className={styles.title}>
                     EDITAR PERFIL
                 </h1>
-                <div className={styles.content}>
                     {/* Contenido principal */}
                     <div className={styles.contentBox.main}>
 
                         <div className={styles.contentBox.topSide}>
-                            <picture className={styles.contentBox.profileImageBox}>
+                            <picture className={styles.contentBox.imageBox}>
                                 <img
-                                    className={styles.contentBox.profileImage}
+                                    className={styles.contentBox.image}
                                     src={profileImage}
                                     alt='user-profile-image'
                                 />
 
                                 <button
-                                    className={styles.contentBox.imageBtn}
+                                    className={styles.contentBox.btnBox}
                                     onClick={() => setEditImage(true)}
                                 >
                                     <BsFillPencilFill />
@@ -256,27 +248,27 @@ export const Profile = () => {
                         </div>
 
                         <hr
-                            className="w-[10%] h-[1px] mt-20 mb-[20px] bg-[#fff]"
+                            className={styles.contentBox.hr}
                         />
 
-                        <div className={styles.userData.main}>
+                        <div className={styles.contentBox.main}>
                             {/* Nombre de usuario */}
-                            <span className={styles.userData.dataBox}>
-                                <h2 className={styles.userData.titles}>
+                            <span className={styles.contentBox.dataBox}>
+                                <h2 className={styles.contentBox.titles}>
                                     Nombre de usuario
                                 </h2>
-                                <h4 className={styles.userData.data}>
+                                <h4 className={styles.contentBox.data}>
                                     {currentUser.displayName === null ? 
                                     'Sin nombre de usuario' : 
                                     currentUser.displayName}
                                 </h4>
                             </span>
                             {/* Email */}
-                            <span className={styles.userData.dataBox}>
-                                <h2 className={styles.userData.titles}>
+                            <span className={styles.contentBox.dataBox}>
+                                <h2 className={styles.contentBox.titles}>
                                         Email
                                 </h2>
-                                <h4 className={styles.userData.data}>
+                                <h4 className={styles.contentBox.data}>
                                         { currentUser.email === null ?
                                           'Sin Email' :
                                           currentUser.email}
@@ -284,7 +276,7 @@ export const Profile = () => {
                             </span>
 
                             <button 
-                                className={styles.userData.button}
+                                className={styles.contentBox.button}
                                 onClick={()=>setInterfaz(true)}
                             >
                                 EDITAR

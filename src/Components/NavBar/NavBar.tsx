@@ -5,16 +5,16 @@ import { FaUserEdit } from "react-icons/fa";
 import { FaUserAltSlash } from "react-icons/fa";
 
 import { 
-    LogOut, CheckSession,
+    LogOut,CheckSession,
     UserStateChange
-} from "../../Data/Firebase";
+ } from "../FireBase/UserFunctions";
 
 import { useEffect, useState } from "react";
 import {  User } from "firebase/auth";
 import { MenuIcon } from "./MenuIcon";
 
 
-export const NavBar: React.FC = () => {
+export const NavBar = () => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState<User | null>(null);
@@ -32,7 +32,7 @@ export const NavBar: React.FC = () => {
         },
 
         list: 'flex flex-col p-2',
-        item: 'flex gap-2 items-center py-1',
+        item: 'flex gap-2 items-center py-1 cursor-pointer',
         itemIcon: 'border-2 bg-st-200 rounded-full border-rd size-10 flex items-center justify-center overflow-hidden text-2xl bg-st/75',
         itemName: '',
         userPhoto: 'size-full object-cover',
