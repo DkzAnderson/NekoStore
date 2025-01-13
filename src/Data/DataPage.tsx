@@ -1,5 +1,12 @@
 
-
+export const categories = [
+    "Acción",
+    "Aventura",
+    "Fantasía",
+    "Isekai",
+    "Shonen",
+    "Sobrenatural"
+]
 
 const PageMainData = {
     name: 'Neko-Store',

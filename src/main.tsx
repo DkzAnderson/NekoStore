@@ -9,6 +9,7 @@ import { LoginMain } from './Components/Login/LoginMain.tsx';
 import { RegisterMain } from './Components/Register/RegisterMain.tsx';
 import { Start } from './Components/StartApp/Start.tsx';
 import { Profile } from './Components/User/Profile.tsx';
+import { Details } from './Components/Details/Details.tsx';
 
 const router = createHashRouter(
   [
@@ -20,6 +21,7 @@ const router = createHashRouter(
         { path: '/login', element: <LoginMain /> },
         { path: '/register', element: <RegisterMain /> },
         { path: '/edit-profile', element: <Profile /> },
+        { path: '/details/:id', element: <Details/>}
       ],
     },
   ],

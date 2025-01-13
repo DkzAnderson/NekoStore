@@ -1,6 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { Serie } from "../../Data/Data";
-
 import { 
     getFirestore ,doc, 
     setDoc,collection,
@@ -15,6 +13,20 @@ export const firebaseConfig = {
     messagingSenderId: "134584652648",
     appId: "1:134584652648:web:f83446204cc80314ec7cdd"
 };
+
+interface Season {
+    episodes: string[];
+    name: string;
+    image: string;
+}
+
+interface Serie {
+    name: string;
+    description: string;
+    categories: string[];
+    images: string[];
+    seasons: Season[];
+}
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
@@ -119,13 +131,16 @@ await updateDoc(washingtonRef, {
 export const GetSerieFromDb = async (id: string) => {
     const docRef = doc(db, "series", id);
     const docSnap = await getDoc(docRef);
+    let data:Serie | any;
 
     if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        data = docSnap.data();
     } else {
         // docSnap.data() will be undefined in this case
         console.log("No such document!");
     }
+
+    return data;
 }
 // obtiene todas las series de una coleccion
 export const GetAllSeriesFromDb = async (collectionId:string) => {

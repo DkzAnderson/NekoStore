@@ -96,11 +96,11 @@ export const Slider: React.FC<ImageSliderProps> = ({ images }) => {
           <IoIosArrowForward className='text-5xl sm:text-transparent' />
         </button>
           <div className='absolute w-full  flex items-center justify-center bottom-0'>
-          <ul className=' w-full max-w-[600px] flex items-center h-4 justify-center sm:justify-evenly sm:px-10 gap-4'>
+          <ul className=' w-full max-w-[600px] flex items-center h-4 sm:h-[8px] p-1 justify-center sm:justify-evenly sm:px-10 gap-4'>
           {images.map((_, i) => (
             <li key={i}
               onClick={() => setCurrentIndex(i)}
-              className={currentIndex === i ? ' w-4 h-4 sm:w-full sm:h-1.5 bg-gradient-to-br from-nd to-rd rounded-full duration-300' : 'w-2 h-2 sm:w-full sm:h-1.5 bg-gradient-to-b from-zinc-300/75 to-transparent rounded-full cursor-pointer duration-300'}
+              className={currentIndex === i ? ' w-4 h-4 sm:w-full sm:h-[8px] bg-gradient-to-br from-nd to-rd rounded-full sm:rounded-sm duration-300' : 'w-2 h-2 sm:w-full sm:h-[5px] bg-gradient-to-b from-zinc-300/75 to-transparent rounded-full sm:rounded-none cursor-pointer duration-300 hover:bg-yellow-500 hover:h-[8px]'}
             >
             </li>
           ))}
